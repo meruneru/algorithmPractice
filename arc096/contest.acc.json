@@ -1,0 +1,37 @@
+{
+  "contest": {
+    "id": "arc096",
+    "title": "AtCoder Regular Contest 096",
+    "url": "https://atcoder.jp/contests/arc096"
+  },
+  "tasks": [
+    {
+      "id": "arc096_a",
+      "label": "C",
+      "title": "Half and Half",
+      "url": "https://atcoder.jp/contests/arc096/tasks/arc096_a",
+      "directory": {
+        "path": "c",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "arc096_b",
+      "label": "D",
+      "title": "Static Sushi",
+      "url": "https://atcoder.jp/contests/arc096/tasks/arc096_b"
+    },
+    {
+      "id": "arc096_c",
+      "label": "E",
+      "title": "Everything on It",
+      "url": "https://atcoder.jp/contests/arc096/tasks/arc096_c"
+    },
+    {
+      "id": "arc096_d",
+      "label": "F",
+      "title": "Sweet Alchemy",
+      "url": "https://atcoder.jp/contests/arc096/tasks/arc096_d"
+    }
+  ]
+}

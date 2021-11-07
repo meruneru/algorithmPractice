@@ -1,0 +1,19 @@
+# g++ -std=c++17 main.cpp   -D DEBUG -I "../lest/include/" ; ./a.out
+env = Environment(CPPPATH=['.'])
+AddOption(
+    '--debug_build',
+    action='store_true',
+    help='debug build',
+    default=False)
+
+env.Append(CCFLAGS= ['-std=c++17'])
+if GetOption('debug_build'):
+    env.Append(CCFLAGS= ['-DDEBUG'])
+
+env.Repository('../lest/include/')
+
+bin_target = "a.out"
+bin_sources = ["main.cpp"]
+
+# Create a exectable
+env.Program(target=bin_target, source=bin_sources, exports="env")
