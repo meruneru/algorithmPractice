@@ -2,5 +2,9 @@
 
 a.out
 *.o
-
+main
+Info.plist
 .sconsign.dblite
+
+main.dSYM/
+
