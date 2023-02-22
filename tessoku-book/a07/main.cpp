@@ -125,50 +125,32 @@ template <typename T> inline bool vector_finder(std::vector<T> vec, T element, u
 template <typename T> inline bool chmin(T& a, const T& b) {bool compare = a > b; if (a > b) a = b; return compare;}
 template <typename T> inline bool chmax(T& a, const T& b) {bool compare = a < b; if (a < b) a = b; return compare;}
 
-int A[100009];
-int Satari[100009];
-int Shazure[100009];
+int B[100009];
+int S[100009];
 int L[100009];
 int R[100009];
 
 int main() {
-    int n, q;
+    int D, N;
 
-    cin>>n;
-    for(int i=1; i<=n; i++){
-        cin>>A[i];
-    }
-    cin>>q;
-    for(int i=1; i<=q; i++){
-        cin>>L[i]>>R[i];
+    cin>>D; //開催期間
+    cin>>N; //参加者数
+    for(int i=1; i<=N; i++){
+        cin>>L[i]>>R[i]; //参加者の日程
     }
     
-    //累積和を事前計算
-    Satari[0] = 0;
-    Shazure[0] = 0;
-    for(int i=1; i<=n; i++){
-        if(A[i]==0){
-            Satari[i] = Satari[i-1];
-            Shazure[i] = Shazure[i-1] + 1;
-        }else{
-            Satari[i] = Satari[i-1] + 1;
-            Shazure[i] = Shazure[i-1];
-        }
+    //増減を記録　
+    for(int i=1; i<=N; i++){
+        B[L[i]]++;
+        B[R[i]+1]--;
     }
 
-    for(int i=1; i<=q; i++){
-        int atari_total = Satari[R[i]] - Satari[L[i]-1];
-        int hazure_total = Shazure[R[i]] - Shazure[L[i]-1];
-        //cout<<atari_total<<" "<<hazure_total<<endl;
-        if(atari_total>hazure_total){
-            cout<<"win"<<endl;
-        }else if(atari_total<hazure_total){
-            cout<<"lose"<<endl;
-        }else{
-            cout<<"draw"<<endl;
-        }
+    for(int i=1; i<=D; i++){
+        S[i] = S[i-1] + B[i];
     }
 
+    for(int i=1; i<=D; i++){
+        cout<<S[i]<<endl;
+    }
     return 0;
 }
-    
